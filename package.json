@@ -1,16 +1,18 @@
 {
-  "name": "telegram",
+  "name": "tailwind-components",
   "version": "0.0.0",
+  "author": "gerbi",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
     "tailwindcss": "^1.4.6",
-    "vue": "^3.0.0-beta.14"
+    "vue": "^3.0.0-beta.15",
+    "vue-router": "4.0.0-alpha.12"
   },
   "devDependencies": {
-    "vite": "^0.20.3",
-    "@vue/compiler-sfc": "^3.0.0-beta.14"
+    "@vue/compiler-sfc": "^3.0.0-beta.15",
+    "vite": "^1.0.0-beta.6"
   }
 }
