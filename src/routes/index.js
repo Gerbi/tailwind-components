@@ -1,4 +1,4 @@
-export let routes = [
+export const routes = [
     {
         path: '/',
         redirect: {

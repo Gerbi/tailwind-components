@@ -4,15 +4,18 @@
   "author": "gerbi",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
-    "tailwindcss": "^1.4.6",
-    "vue": "^3.0.0-beta.15",
-    "vue-router": "4.0.0-alpha.12"
+    "vue": "^3.0.11",
+    "vue-router": "4.0.8"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.0-beta.15",
-    "vite": "^1.0.0-beta.6"
+    "autoprefixer": "^10.2.6",
+    "tailwindcss": "^2.1.2",
+    "@vue/compiler-sfc": "^3.0.11",
+    "@vitejs/plugin-vue": "^1.2.2",
+    "vite": "^2.3.4"
   }
 }
