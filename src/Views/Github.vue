@@ -1,14 +1,15 @@
 <template>
-  <nav class="bg-gray-900">
-    <div class="mx-auto max-w-full px-4 sm:px-6 lg:px-10">
+  <nav class="bg-slate-50 border-b-2">
+    <div class="mx-auto max-w-full px-4">
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
-          <div class="flex-shrink-0">
+          <div class="flex-shrink-0 flex items-center">
             <button
-              class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none md:hidden"
+              @click="activeMenu = !activeMenu"
+              class="inline-flex border border-slate-400 items-center justify-center rounded-md p-2 mr-4 text-gray-400 focus:outline-none"
             >
               <svg
-                class="block h-6 w-6"
+                class="block h-4 w-4"
                 stroke="currentColor"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -21,12 +22,9 @@
                 />
               </svg>
             </button>
-            <router-link
-              to="/"
-              class="hidden w-1/5 justify-center text-center md:block"
-            >
+            <button class="justify-center text-center cursor-default">
               <svg
-                class="mx-auto h-8 w-8 cursor-pointer fill-current text-gray-200 hover:text-gray-300"
+                class="mx-auto h-8 w-8 fill-current text-gray-700"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -34,56 +32,39 @@
                   d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
                 />
               </svg>
-            </router-link>
-          </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-center">
-              <input
-                type="text"
-                class="hidden rounded-lg bg-gray-900 px-4 py-1 text-sm text-white placeholder-white focus:shadow-none focus:outline-none lg:block"
-                placeholder="Search or jump to..."
-              />
-              <a
-                href="#"
-                class="ml-4 rounded-md px-3 py-2 text-sm font-semibold text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none"
-                >Dashboard
-              </a>
-              <a
-                href="#"
-                class="ml-4 rounded-md px-3 py-2 text-sm font-semibold text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none"
-                >Pull requests
-              </a>
-              <a
-                href="#"
-                class="ml-4 rounded-md px-3 py-2 text-sm font-semibold text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none"
-                >Issues
-              </a>
-              <a
-                href="#"
-                class="ml-4 rounded-md px-3 py-2 text-sm font-semibold text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none"
-                >Marketplace
-              </a>
-              <a
-                href="#"
-                class="ml-4 rounded-md px-3 py-2 text-sm font-semibold text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none"
-                >Explore</a
-              >
+            </button>
+            <div class="flex">
+              <a class="mx-3" href="#">tailwindlabs / tailwindcss</a>
             </div>
           </div>
         </div>
-        <router-link to="/" class="w-1/5 justify-center text-center md:hidden">
-          <svg
-            class="mx-auto h-8 w-8 cursor-pointer fill-current text-gray-200 hover:text-gray-300"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-            />
-          </svg>
-        </router-link>
+
         <div class="hidden md:block">
-          <div class="ml-4 flex items-center md:ml-6">
+          <div class="ml-4 flex items-center justify-center md:ml-6">
+            <Search></Search>
+            <div
+              class="relative flex items-center w-full pl-2 overflow-hidden text-gray-600 focus-within:text-gray-400"
+            >
+              <span class="absolute inset-y-0 left-0 flex items-center pl-4">
+                <button
+                  type="submit"
+                  class="p-1 focus:outline-none focus:shadow-none"
+                >
+                  <svg
+                    class="w-6 h-6 fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill-rule="nonzero"
+                      d="M9.5,3 C13.0898509,3 16,5.91014913 16,9.5 C16,10.9337106 15.5358211,12.2590065 14.7495478,13.3338028 L19.7071068,18.2928932 C20.0976311,18.6834175 20.0976311,19.3165825 19.7071068,19.7071068 C19.3466228,20.0675907 18.7793918,20.0953203 18.3871006,19.7902954 L18.2928932,19.7071068 L13.3338028,14.7495478 C12.2590065,15.5358211 10.9337106,16 9.5,16 C5.91014913,16 3,13.0898509 3,9.5 C3,5.91014913 5.91014913,3 9.5,3 Z M9.5,5 C7.01471863,5 5,7.01471863 5,9.5 C5,11.9852814 7.01471863,14 9.5,14 C11.9852814,14 14,11.9852814 14,9.5 C14,7.01471863 11.9852814,5 9.5,5 Z"
+                    />
+                  </svg>
+                </button>
+              </span>
+            </div>
             <button
               class="relative rounded-full border-2 border-transparent p-1 text-gray-400 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none"
               aria-label="Notifications"
@@ -108,9 +89,9 @@
               </div>
             </button>
             <div class="relative ml-3">
-              <div>
+              <div class="flex inline-block">
                 <button
-                  class="focus:shadow-solid flex max-w-xs items-center rounded-full border border-gray-700 text-sm text-white focus:outline-none"
+                  class="focus:shadow-solid flex max-w-xs items-center rounded-full h-8 w-8 border border-gray-700 text-sm text-white focus:outline-none"
                   id="user-menu"
                   aria-label="User menu"
                   aria-haspopup="true"
@@ -563,17 +544,128 @@
       <router-view></router-view>
     </div>
   </div>
+  <TransitionRoot as="div" :show="activeMenu">
+    <Dialog as="div" class="fixed inset-0 overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <DialogOverlay class="absolute inset-0" />
+        <div
+          class="pointer-events-none fixed inset-y-0 left-0 flex max-w-full pr-10"
+        >
+          <TransitionChild
+            as="template"
+            enter="transform transition ease-in-out duration-500"
+            enter-from="-translate-x-full"
+            enter-to="translate-x-0"
+            leave="transform transition ease-in-out duration-300"
+            leave-from="translate-x-0"
+            leave-to="-translate-x-full"
+          >
+            <div class="pointer-events-auto w-screen max-w-sm">
+              <div
+                class="flex h-full flex-col overflow-hidden bg-white py-4 shadow-xl rounded-xl"
+              >
+                <div class="px-4">
+                  <div class="flex items-start justify-between">
+                    <button class="justify-center text-center cursor-default">
+                      <svg
+                        class="mx-auto h-8 w-8 fill-current text-gray-700"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                        />
+                      </svg>
+                    </button>
+                    <div class="ml-3 flex h-7 items-center">
+                      <button
+                        type="button"
+                        class="rounded-md border bg-white text-gray-400 hover:text-gray-500 focus:outline-none"
+                        @click="activeMenu = !activeMenu"
+                      >
+                        <span class="sr-only">Close panel</span>
+                        <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="relative flex-1">
+                  <!-- Replace with your content -->
+                  <nav class="mt-4 flex-1 px-3 bg-white space-y-1">
+                    <a
+                      v-for="item in navigation"
+                      :key="item.name"
+                      :href="item.href"
+                      :class="[
+                        item.current
+                          ? 'bg-gray-100 text-slate-900'
+                          : 'text-gray-800 hover:bg-gray-50 hover:text-slate-900',
+                        'group flex items-center px-2 py-[5px] text-sm font-medium rounded-md',
+                      ]"
+                    >
+                      <component
+                        :is="item.icon"
+                        :class="[
+                          item.current
+                            ? 'text-gray-500'
+                            : 'text-gray-700 group-hover:text-gray-800',
+                          'mr-2 flex-shrink-0 h-5 w-5',
+                        ]"
+                        aria-hidden="true"
+                      />
+                      {{ item.name }}
+                    </a>
+                  </nav>
+                </div>
+                <!-- /End replace -->
+              </div>
+            </div>
+          </TransitionChild>
+        </div>
+      </div>
+    </Dialog>
+  </TransitionRoot>
 </template>
 
-<script>
-export default {
-  name: "Github",
-  data() {
-    return {
-      activeMenu: "true",
-    };
+<script setup>
+import { ref } from "vue";
+import {
+  Dialog,
+  DialogOverlay,
+  TransitionChild,
+  TransitionRoot,
+} from "@headlessui/vue";
+import {
+  ArrowUpOnSquareStackIcon,
+  BugAntIcon,
+  ChatBubbleLeftRightIcon,
+  HomeIcon,
+  ServerStackIcon,
+  SwatchIcon,
+  XMarkIcon,
+} from "@heroicons/vue/24/outline";
+import Search from '../components/github/Search.vue';
+
+const activeMenu = ref(false);
+
+const navigation = [
+  { name: "Home", href: "#", icon: HomeIcon, current: false },
+  { name: "Issues", href: "#", icon: BugAntIcon, current: false },
+  {
+    name: "Pull requests",
+    href: "#",
+    icon: ArrowUpOnSquareStackIcon,
+    current: false,
   },
-};
+  { name: "Projects", href: "#", icon: SwatchIcon, current: false },
+  {
+    name: "Discussions",
+    href: "#",
+    icon: ChatBubbleLeftRightIcon,
+    current: false,
+  },
+  { name: "Codespaces", href: "#", icon: ServerStackIcon, current: false },
+];
 </script>
 
 <style scoped></style>

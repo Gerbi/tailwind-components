@@ -8,7 +8,7 @@ export const routes = [
     {
         path: '/github',
         name: 'Github',
-        component: () => import('../views/Github.vue'),
+        component: () => import('../Views/Github.vue'),
         children: [
             {
                 path: '',
